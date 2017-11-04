@@ -1,0 +1,21 @@
+POST http://localhost:8080/api/Authors
+Content-Type: application/json
+
+{
+    "firstName": "Peng",
+    "lastName": "Wang"
+}
+
+###
+POST http://localhost:8080/api/Articles
+Content-Type: application/json
+
+{
+    "title": "this is a blog post",
+    "url": "http://xxx.xxx.xx/xxx",
+    "body": "this is some content",
+    "authorId": 1
+}
+
+###
+GET http://localhost:8080/api/Articles
