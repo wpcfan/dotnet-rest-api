@@ -31,3 +31,23 @@ docker-compose down
 volumes:
     - ./DbScripts:/docker-entrypoint-initdb.d
 ```
+
+在开发时可以不使用 MySql Docker，连接本地数据库，可以参看 `appsettings.Development.json` 文件中的 `DbContextSettings`
+
+```json
+"DbContextSettings" :{
+    "ConnectionString" : "server=localhost;userid=root;password=Wp770521;database=eftest;"
+  }
+```
+
+macOS 运行时，使用下面的命令启动即可以开发模式的配置进行服务的启动
+
+```
+ASPNETCORE_ENVIRONMENT=Development dotnet run
+```
+
+改变监听端口也可以使用设置环境变量的方式进行，比如下面就是在开发中指定 8080 为监听端口
+
+```
+ASPNETCORE_URLS=http://0.0.0.0:8080 ASPNETCORE_ENVIRONMENT=Development dotnet run
+```
