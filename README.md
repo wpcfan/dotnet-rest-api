@@ -24,3 +24,10 @@ docker-compose up
 ```
 docker-compose down
 ```
+
+创建表的脚本可以放在 DbScripts 目录下，我们通过将这个目录映射到 Docker 的 `docker-entrypoint-initdb.d` 来完成数据库启动之后的脚本自动执行。
+
+```
+volumes:
+    - ./DbScripts:/docker-entrypoint-initdb.d
+```
